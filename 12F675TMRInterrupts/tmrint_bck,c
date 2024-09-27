@@ -1,0 +1,129 @@
+// Function prototypes (declare these before using them)
+void debounce(void);
+unsigned char GetGPIOValue(unsigned int index);
+
+/*
+ * File:   main.c
+ * Author: mark
+ *
+ * Created on 09 March 2024, 21:47
+ */
+
+// PIC12F675 Configuration Bit Settings
+// (Configuration bits remain unchanged)
+
+// CONFIG
+#pragma config FOSC = INTRCCLK  // Oscillator Selection bits (INTOSC oscillator: CLKOUT function on GP4/OSC2/CLKOUT pin, I/O function on GP5/OSC1/CLKIN)
+#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
+#pragma config PWRTE = OFF      // Power-Up Timer Enable bit (PWRT disabled)
+#pragma config MCLRE = OFF      // GP3/MCLR pin function select (GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD)
+#pragma config BOREN = OFF      // Brown-out Detect Enable bit (BOD disabled)
+#pragma config CP = OFF         // Code Protection bit (Program Memory code protection is disabled)
+#pragma config CPD = OFF        // Data Code Protection bit (Data memory code protection is disabled)
+
+#include <xc.h>
+
+#define _XTAL_FREQ 4000000      // Define clock frequency as 4 MHz
+#define LED GPIObits.GP4       // Define LED pin on GP4 which powers the relay 
+#define BUTTON GPIObits.GP3    // Define button input pin
+#define ARRAY_SIZE 10          // Define the size of the array
+
+unsigned int overflow_count = 0; // Overflow counter to track multiple Timer0 overflows
+unsigned char decrement_count = 10; // Initial decrement count
+
+// Array will hold values to send via port to the 4511
+unsigned char Table4511[ARRAY_SIZE] = {0, 4, 32, 36, 64, 68, 96, 100, 128, 132};
+
+unsigned char _portvalue; //  for assigned port value
+
+unsigned int flag = 0;
+
+// Interrupt Service Routine
+void __interrupt() myISR(void)
+{
+    // Handle Timer0 interrupt (enabled only after GP3 interrupt)
+    if ((T0IE == 1) && (T0IF == 1))
+    {
+        overflow_count++;  // Increment overflow counter on each Timer0 overflow
+
+        if (decrement_count == 0)
+        {
+            // reset if count = 0
+            decrement_count = 10;
+            // re-enable GP3 port pin change interrupt
+            INTE = 0;
+        }
+
+        if (overflow_count == 76)  // When 76 overflows occur (~5 seconds)
+        {
+            decrement_count--;  // Decrement count
+            
+            _portvalue = GetGPIOValue(decrement_count);  // Fetch value from the array
+
+            overflow_count = 0;  // Reset overflow count
+        }
+
+        TMR0 = 61;     // Reload TMR0 with the calculated value
+        T0IF = 0;      // Clear the TMR0 interrupt flag
+    }
+
+    // Handle GPIO interrupt-on-change (GP3)
+    if ((GPIF == 1) && (INTE == 1))
+    {
+        if (BUTTON == 0)  // Check if GP3 is pulled to ground (button pressed)
+        {
+            INTE = 0;     // Disable GP3 interrupt to prevent further triggering
+            debounce();   // Call debounce function to handle button press
+        }
+        GPIF = 0;        // Clear the interrupt flag for GPIO
+    }
+}
+
+// Function to handle switch debouncing
+void debounce(void)
+{
+    __delay_ms(20);    // 20 ms delay for debouncing
+    if (BUTTON == 0)   // Check if button is still pressed (pulled to ground)
+    {
+        LED ^= 1;      // Toggle LED if the button is confirmed pressed
+        T0IE = 1;      // Enable Timer0 interrupt after debouncing
+    }
+}
+
+// Function to get value from the array for the 7-segment display
+unsigned char GetGPIOValue(unsigned int index)
+{
+    return Table4511[index];  // Return the corresponding value from the array
+}
+
+void InitCCT(void)
+{
+    ANSEL  = 0x00;              // Set all ports as digital I/O, not analog input
+    ADCON0 = 0x00;              // Shut off the A/D Converter
+    CMCON  = 0x07;              // Shut off the Comparator
+    VRCON  = 0x00;              // Shut off the Voltage Reference
+    TRISIO = TRISIO | (1 << 3);  // Set GP3 as input, all others as output
+    OPTION_REG = 0x00;          // Enable weak pull-ups, no prescaler on TMR0 yet
+    WPU = WPU | (1 << 3);       // Enable weak pull-up for GP3
+    IOC = IOC | (1 << 3);       // Enable port pin change interrupt on GP3
+
+    GPIO = 0x00;                // Initialize all GPIOs to 0
+}
+
+void main(void)
+{
+    InitCCT();                  // Initialize I/O and peripherals
+
+    OPTION_REG = 0x07;          // Set prescaler 1:256 for Timer0
+    TMR0 = 61;                  // Load TMR0 with initial value to achieve 5-second overflow
+    INTCON = 0b10001000;        // Enable global interrupts and GP3 interrupt (GPIO interrupt)
+                                // Timer0 interrupt (T0IE) is initially disabled
+    _portvalue = Table4511[9]; // get initial display of 9  and show this on the 7seg display 
+    while (1)
+    {
+        // get initial display of 9  and show this on the 7seg display 
+        GPIO = _portvalue ; // 7 segment should display   9 to 0  in 5 second intervals 
+    }
+
+    return;
+}

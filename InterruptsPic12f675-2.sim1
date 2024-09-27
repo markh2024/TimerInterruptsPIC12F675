@@ -1,0 +1,131 @@
+<circuit version="1.1.0-RC1" rev="2162" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="1" >
+
+<item itemtype="Rail" CircId="Rail-59" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-332,84" rotation="90" hflip="1" vflip="1" label="Rail-59" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Seven Segment" CircId="Seven Segment-37" mainComp="false" Show_id="false" Show_Val="false" Pos="48,-8" rotation="0" hflip="1" vflip="1" label="Seven Segment-37" idLabPos="20,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" NumDisplays="1 _7seg" Vertical_Pins="false" CommonCathode="true" Threshold="2.4 V" MaxCurrent="0.02 A" Resistance="1 Ω" />
+
+<item itemtype="Subcircuit" CircId="CD4511-41" mainComp="false" Show_id="true" Show_Val="false" Pos="-204,-40" rotation="0" hflip="1" vflip="1" label="CD4511-41" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" Logic_Symbol="true" />
+
+<item itemtype="Resistor" CircId="Resistor-44" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-80,132" rotation="0" hflip="1" vflip="1" label="Resistor-44" idLabPos="-16,-24" labelrot="0" valLabPos="-14.4126,9.96861" valLabRot="0" Resistance="220 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-54" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-456,28" rotation="0" hflip="1" vflip="1" label="Resistor-54" idLabPos="-16,-24" labelrot="0" valLabPos="-11.2377,5.60314" valLabRot="0" Resistance="21 kΩ" />
+
+<item itemtype="Amperimeter" CircId="Amperimeter-61" mainComp="false" Show_id="false" Show_Val="false" Pos="-488,-8" rotation="360" hflip="-1" vflip="1" label="Amperimeter-61" idLabPos="-24,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="TextComponent" CircId="TextComponent-20" mainComp="false" Show_id="false" Show_Val="false" Pos="-476,-116" rotation="0" hflip="1" vflip="1" label="TextComponent-20" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Color="#ffffdc" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Font_Color="#000080" Fixed_Width="false" Text="Simulation to illustrate how timer  interrupts  work using this as a counter&#xa;on the PIC12F675  MDHarrington Kent London Kent DA6 8NP  04:49 22:31 hrs " />
+
+<item itemtype="Resistor" CircId="Resistor-64" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-388,128" rotation="0" hflip="1" vflip="1" label="Resistor-64" idLabPos="-16,-24" labelrot="0" valLabPos="-11.2377,5.60314" valLabRot="0" Resistance="18 kΩ" />
+
+<item itemtype="Resistor" CircId="Resistor-35" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-80,44" rotation="0" hflip="1" vflip="1" label="Resistor-35" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="220 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-43" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-80,104" rotation="0" hflip="1" vflip="1" label="Resistor-43" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="220 Ω" />
+
+<item itemtype="Ground" CircId="Ground-55" mainComp="false" Show_id="false" Show_Val="false" Pos="-548,124" rotation="0" hflip="1" vflip="1" label="Ground-55" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Resistor" CircId="Resistor-9" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-80,-8" rotation="0" hflip="1" vflip="1" label="Resistor-9" idLabPos="-16,-24" labelrot="0" valLabPos="-11.2377,5.60314" valLabRot="0" Resistance="220 Ω" />
+
+<item itemtype="BJT" CircId="BJT-53" mainComp="false" Show_id="false" Show_Val="false" Pos="-540,28" rotation="0" hflip="-1" vflip="1" label="BJT-53" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" PNP="false" Gain="100" Vcrit="0.670736 V" />
+
+<item itemtype="Resistor" CircId="Resistor-8" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-80,-32" rotation="0" hflip="1" vflip="1" label="Resistor-8" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="220 Ω" />
+
+<item itemtype="Push" CircId="Push-62" mainComp="false" Show_id="false" Show_Val="false" Pos="-484,100" rotation="0" hflip="1" vflip="1" label="Push-62" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1 _Poles" />
+
+<item itemtype="Resistor" CircId="Resistor-42" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-80,76" rotation="0" hflip="1" vflip="1" label="Resistor-42" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="220 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-10" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-80,16" rotation="0" hflip="1" vflip="1" label="Resistor-10" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="220 Ω" />
+
+<item itemtype="RelaySPST" CircId="RelaySPST-56" mainComp="false" Show_id="false" Show_Val="false" Pos="-548,-24" rotation="-90" hflip="1" vflip="1" label="RelaySPST-56" idLabPos="-16,8" labelrot="0" valLabPos="-16,6" valLabRot="0" Norm_Close="false" DT="false" Poles="1 _Poles" IOn="0.02 A" IOff="0.01 A" Inductance="0.1 H" Rcoil="100 Ω" ReaStep="0 ns" />
+
+<item itemtype="Rail" CircId="Rail-58" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-548,-80" rotation="90" hflip="1" vflip="1" label="Rail-58" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="MCU" CircId="p12F675-3" mainComp="false" Show_id="true" Show_Val="false" Pos="-412,12" rotation="0" hflip="1" vflip="1" label="p12F675-3" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="4 MHz" Program="../../../MPLABXProjects/TimerInterrupts.X/PIC12F675Interrupts/dist/default/production/PIC12F675Interrupts.production.hex" Auto_Load="false" saveEepr="true" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" varList="OPTION,IOC,GPIO" />
+
+<item itemtype="Ground" CircId="Ground-46" mainComp="false" Show_id="false" Show_Val="false" Pos="-224,96" rotation="0" hflip="1" vflip="1" label="Ground-46" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="TextComponent" CircId="TextComponent-67" mainComp="false" Show_id="false" Show_Val="false" Pos="-532,148" rotation="0" hflip="1" vflip="1" label="TextComponent-67" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _Pixels" Border="1 _Pixels" Color="#ffffdc" Opacity="1" Font="Helvetica [Cronyx]" Font_Size="10 _Pixels" Font_Color="#000080" Fixed_Width="true" Text="Push  to Reset Counter " />
+
+<item itemtype="Node" CircId="Node-66" mainComp="false" Pos="-440,100" />
+
+<item itemtype="Node" CircId="Node-49" mainComp="false" Pos="-224,52" />
+
+<item itemtype="Node" CircId="Node-60" mainComp="false" Pos="-216,8" />
+
+<item itemtype="Node" CircId="Node-65" mainComp="false" Pos="-332,128" />
+
+<item itemtype="Node" CircId="Node-63" mainComp="false" Pos="-548,100" />
+
+<item itemtype="Connector" uid="Connector-71" startpinid="Resistor-8-lPin" endpinid="CD4511-41-A" pointList="-96,-32,-164,-32" />
+
+<item itemtype="Connector" uid="Connector-65" startpinid="Resistor-10-rPin" endpinid="Seven Segment-37-pin_c" pointList="-64,16,-12,16,-12,-16,24,-16" />
+
+<item itemtype="Connector" uid="Connector-63" startpinid="Resistor-8-rPin" endpinid="Seven Segment-37-pin_a" pointList="-64,-32,24,-32" />
+
+<item itemtype="Connector" uid="Connector-119" startpinid="Amperimeter-61-lPin" endpinid="Resistor-54-lPin" pointList="-480,8,-480,28,-472,28" />
+
+<item itemtype="Connector" uid="Connector-67" startpinid="Resistor-42-rPin" endpinid="Seven Segment-37-pin_e" pointList="-64,76,4,76,4,0,24,0" />
+
+<item itemtype="Connector" uid="Connector-123" startpinid="Node-63-2" endpinid="Ground-55-Gnd" pointList="-548,100,-548,108" />
+
+<item itemtype="Connector" uid="Connector-114" startpinid="Rail-58-outnod" endpinid="RelaySPST-56-inductor-rPin" pointList="-548,-64,-548,-40" />
+
+<item itemtype="Connector" uid="Connector-94" startpinid="Node-49-2" endpinid="Ground-46-Gnd" pointList="-224,52,-224,80" />
+
+<item itemtype="Connector" uid="Connector-128" startpinid="Resistor-64-lPin" endpinid="Node-66-1" pointList="-404,128,-440,128,-440,100" />
+
+<item itemtype="Connector" uid="Connector-81" startpinid="p12F675-3-PORTP4" endpinid="CD4511-41-D3" pointList="-420,36,-432,36,-432,72,-312,72,-312,-8,-212,-8" />
+
+<item itemtype="Connector" uid="Connector-73" startpinid="Resistor-10-lPin" endpinid="CD4511-41-C" pointList="-96,16,-124,16,-124,-16,-164,-16" />
+
+<item itemtype="Connector" uid="Connector-78" startpinid="p12F675-3-PORTP0" endpinid="CD4511-41-D0" pointList="-372,28,-344,28,-344,-32,-212,-32" />
+
+<item itemtype="Connector" uid="Connector-93" startpinid="CD4511-41-!LE" endpinid="Node-49-0" pointList="-212,16,-224,16,-224,52" />
+
+<item itemtype="Connector" uid="Connector-72" startpinid="Resistor-9-lPin" endpinid="CD4511-41-B" pointList="-96,-8,-120,-8,-120,-24,-164,-24" />
+
+<item itemtype="Connector" uid="Connector-92" startpinid="Seven Segment-37-pin_commona" endpinid="Node-49-1" pointList="56,24,56,164,-192,164,-192,52,-224,52" />
+
+<item itemtype="Connector" uid="Connector-69" startpinid="Resistor-43-rPin" endpinid="Seven Segment-37-pin_f" pointList="-64,104,12,104,12,8,24,8" />
+
+<item itemtype="Connector" uid="Connector-108" startpinid="BJT-53-collector" endpinid="RelaySPST-56-inductor-lPin" pointList="-548,12,-548,-8" />
+
+<item itemtype="Connector" uid="Connector-77" startpinid="Resistor-44-lPin" endpinid="CD4511-41-G" pointList="-96,132,-152,132,-152,16,-164,16" />
+
+<item itemtype="Connector" uid="Connector-120" startpinid="Amperimeter-61-rPin" endpinid="BJT-53-base" pointList="-496,8,-496,28,-524,28" />
+
+<item itemtype="Connector" uid="Connector-66" startpinid="Resistor-35-rPin" endpinid="Seven Segment-37-pin_d" pointList="-64,44,-4,44,-4,-8,24,-8" />
+
+<item itemtype="Connector" uid="Connector-75" startpinid="Resistor-42-lPin" endpinid="CD4511-41-E" pointList="-96,76,-136,76,-136,0,-164,0" />
+
+<item itemtype="Connector" uid="Connector-117" startpinid="CD4511-41-!LT" endpinid="Node-60-0" pointList="-212,0,-216,0,-216,8" />
+
+<item itemtype="Connector" uid="Connector-125" startpinid="Resistor-64-rPin" endpinid="Node-65-1" pointList="-372,128,-332,128" />
+
+<item itemtype="Connector" uid="Connector-127" startpinid="Node-65-2" endpinid="Node-60-1" pointList="-332,128,-272,128,-272,8,-216,8" />
+
+<item itemtype="Connector" uid="Connector-80" startpinid="p12F675-3-PORTP2" endpinid="CD4511-41-D2" pointList="-372,44,-320,44,-320,-16,-212,-16" />
+
+<item itemtype="Connector" uid="Connector-103" startpinid="Resistor-54-rPin" endpinid="p12F675-3-PORTP5" pointList="-440,28,-420,28" />
+
+<item itemtype="Connector" uid="Connector-126" startpinid="Rail-59-outnod" endpinid="Node-65-0" pointList="-332,100,-332,128" />
+
+<item itemtype="Connector" uid="Connector-118" startpinid="Node-60-2" endpinid="CD4511-41-!BL" pointList="-216,8,-212,8" />
+
+<item itemtype="Connector" uid="Connector-79" startpinid="p12F675-3-PORTP1" endpinid="CD4511-41-D1" pointList="-372,36,-332,36,-332,-24,-212,-24" />
+
+<item itemtype="Connector" uid="Connector-129" startpinid="Push-62-switch0pinN" endpinid="Node-66-0" pointList="-468,100,-440,100" />
+
+<item itemtype="Connector" uid="Connector-70" startpinid="Resistor-44-rPin" endpinid="Seven Segment-37-pin_g" pointList="-64,132,20,132,20,16,24,16" />
+
+<item itemtype="Connector" uid="Connector-76" startpinid="Resistor-43-lPin" endpinid="CD4511-41-F" pointList="-96,104,-144,104,-144,8,-164,8" />
+
+<item itemtype="Connector" uid="Connector-64" startpinid="Resistor-9-rPin" endpinid="Seven Segment-37-pin_b" pointList="-64,-8,-24,-8,-24,-24,24,-24" />
+
+<item itemtype="Connector" uid="Connector-122" startpinid="BJT-53-emiter" endpinid="Node-63-0" pointList="-548,44,-548,100" />
+
+<item itemtype="Connector" uid="Connector-121" startpinid="Push-62-pinP0" endpinid="Node-63-1" pointList="-500,100,-548,100" />
+
+<item itemtype="Connector" uid="Connector-130" startpinid="Node-66-2" endpinid="p12F675-3-PORTP3" pointList="-440,100,-424,100,-424,44,-420,44" />
+
+<item itemtype="Connector" uid="Connector-74" startpinid="Resistor-35-lPin" endpinid="CD4511-41-D" pointList="-96,44,-128,44,-128,-8,-164,-8" />
+
+</circuit>

@@ -1,0 +1,102 @@
+REM  *****  BASIC  *****
+REM ***  MD Harrington  kent London  DA6 8NP 
+REM  ***** DATE TODAY IS 25:09/2024 TIME : 00:00 HRS 
+
+Sub PrintArrayForC
+ Dim oSheet As Object
+    Dim oRange As Object
+    Dim oCell As Object
+
+    ' Access the first sheet (Sheet1)
+    oSheet = ThisComponent.Sheets(0)
+    
+    ' Access the merged cell range (B26:J27)
+    oRange = oSheet.getCellRangeByName("B26:J27")
+    
+    ' Access the first cell in the merged range
+    oCell = oRange.getCellByPosition(0, 0) ' The first cell of the merged range (B26)
+    
+    ' Update the value in the first cell of the merged range
+    oCell.String =  CreateCharArrayFromColumn()
+End Sub
+
+
+Sub ClearData
+Dim oSheet As Object
+    Dim oRange As Object
+    Dim oCell As Object
+
+    ' Access the first sheet (Sheet1)
+    oSheet = ThisComponent.Sheets(0)
+    
+    ' Access the merged cell range (B26:J27)
+    oRange = oSheet.getCellRangeByName("B26:J27")
+    
+    ' Access the first cell in the merged range
+    oCell = oRange.getCellByPosition(0, 0) ' The first cell of the merged range (B26)
+    
+    ' Update the value in the first cell of the merged range
+    oCell.String = "" 
+
+end sub 
+
+
+
+Function CreateCharArrayFromColumn() As String
+    Dim oSheet As Object
+    Dim oCell As Object
+    Dim i As Integer
+    Dim startRow As Integer
+    Dim endRow As Integer
+    Dim resultString As String
+    Dim value As String
+
+    ' Access the first sheet (Sheet1)
+    oSheet = ThisComponent.Sheets(0)
+    
+    ' Define the start and end rows (J7 to J16 means row 6 to row 15 in 0-indexed)
+    startRow = 6  ' J7
+    endRow = 15   ' J16
+    
+    ' Initialize the result string with the initial text
+    resultString = "unsigned char m_array [10] = { "
+    
+    ' Loop through the cells in column J (index 9) from J7 to J16
+    For i = startRow To endRow
+        ' Access the current cell in column J
+        oCell = oSheet.getCellByPosition(9, i)
+        
+        ' Get the cell's value as a string (you can also use .getValue if they are numbers)
+        value = oCell.getString()
+        
+        ' Append the value to the result string
+        resultString = resultString & value
+        
+        ' Add a comma between values, but avoid it after the last one
+        If i < endRow Then
+            resultString = resultString & ", "
+        End If
+    Next i
+    
+    ' Close the array declaration in the string
+    resultString = resultString & " };"
+    
+    ' Return the final string
+    CreateCharArrayFromColumn = resultString
+End Function
+
+
+REM Notes about other code 
+REM These  functions are built in 
+REM =CONCAT("0x",DEC2HEX(H7,2))  this  is entered into column J 
+REM =CONCAT("0b000",C7:G7)  this is entered into Column I 
+REM =BIN2DEC(MID(I7,3,8)) this is entered into Column H 
+
+' Bare in mind  that you have to understand what these functions  do   but this
+' is how I  work out truth tables  to plug into code 
+' Ive produced this to show  you   how to use   spreadsheets  to your advantage  using
+' With automation in mind  
+' You can  do much more than just this  and its possiblities are endless 
+' auto email , networking , security , iot  you name it 
+' That is all in your hands  and how you  implement  knowledge 
+ 
